@@ -10,7 +10,7 @@ class Playlist extends Component {
         <h2>{name}</h2>
         <p>{description}</p>
         <h3>Songs:</h3>
-        {songs.map((song, index) => <Song key={index} song={song} />)}
+        {songs.map((song, index) => <Song key={index} tile={song.tile} artist={song.artist}/>)}
         <AddSong />
       </div>
     );

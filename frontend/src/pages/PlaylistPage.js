@@ -1,6 +1,30 @@
 // src/pages/PlaylistPage.js
 import React, { Component } from 'react';
 import Playlist from '../components/Playlist';
+import CommentList from '../components/CommentsList';
+
+const dummyComments = [
+  {
+    user: 'Alice',
+    text: 'This is a great post!'
+  },
+  {
+    user: 'Bob',
+    text: 'I found this very helpful, thanks!'
+  },
+  {
+    user: 'Charlie',
+    text: 'Can you provide more details on this topic?'
+  },
+  {
+    user: 'Dave',
+    text: 'I disagree with your point on...'
+  },
+  {
+    user: 'Eve',
+    text: 'Excellent write-up!'
+  }
+];
 
 class PlaylistPage extends Component {
   render() {
@@ -19,6 +43,8 @@ class PlaylistPage extends Component {
       <div>
         <h1>Playlist Page</h1>
         <Playlist playlist={playlist} />
+        <h2>Comments</h2>
+        <CommentList comments={dummyComments}/>
       </div>
     );
   }
