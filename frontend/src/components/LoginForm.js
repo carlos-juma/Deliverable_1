@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import withNavigate from './withNavigate';
 
 class LoginForm extends Component {
     state = {
@@ -10,12 +11,23 @@ class LoginForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    validate = () => {
+        const { email, password, confirmPassword } = this.state;
+        let errors = {};
+        if (!email.includes('@')) errors.email = 'Invalid email!';
+        this.setState({ errors });
+        return Object.keys(errors).length === 0;
+      }
+
     handleSubmit = (e) => {
         e.preventDefault();
         const { email, password } = this.state;
-        // Add your form submission logic here
         console.log('Email:', email);
         console.log('Password:', password);
+        if (this.validate()) {
+            this.props.navigate('/home');
+          }
+
     }
 
     render() {
@@ -46,4 +58,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default withNavigate(LoginForm);

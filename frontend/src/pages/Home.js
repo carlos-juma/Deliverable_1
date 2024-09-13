@@ -60,6 +60,7 @@ class Home extends React.Component {
     return (
       <div>
         <Header />
+        <input type="text" placeholder="Search" />
         <h1>Playlists Feed</h1>
         {this.state.playlists.map((playlist, index) => (
           <PlaylistPreview key={index} {...playlist}/>

@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
+import FollowersFollowing from '../components/FollowerFollowing';
+import CreatePlaylist from '../components/CreatePlaylist';
+import EditProfile from '../components/EditProfile';
 
-class Profile extends Component {
+class Profile extends React.Component {
   render() {
+    const { username, bio, followers, following } = this.props.profile;
     return (
-      <div className="profile-page">
-        <header>
-          <h2>Profile</h2>
-        </header>
-        <section>
-          {/* Profile info, playlist previews, etc */}
-        </section>
+      <div>
+        <h3>{username}</h3>
+        <p>{bio}</p>
+        <FollowersFollowing followers={followers} following={following} />
+        <h3>Create Playlist</h3>
+        <CreatePlaylist />
+        <h3>Edit Profile</h3>
+        <EditProfile/>
       </div>
     );
   }
